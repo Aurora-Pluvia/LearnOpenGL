@@ -44,6 +44,9 @@ void processInput(GLFWwindow* window){
         cameraPos -= cameraSpeed * cameraUp;
 }
 
+//监听鼠标移动事件，移动鼠标时执行，xpos和ypos代表鼠标当前的位置
+void mouse_callback(GLFWwindow* window, double xpos, double ypos);
+
 int main(){
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -61,6 +64,13 @@ int main(){
         return -1;
     }
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+
+    //隐藏光标并捕捉光标
+    //捕捉光标表示的是，如果焦点在该程序上，光标应该停留在窗口中（除非程序失去焦点或者退出）
+    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+
+    //为鼠标操作注册回调函数，移动鼠标时执行mouse_callback
+    glfwSetCursorPosCallback(window, mouse_callback);
 
     glEnable(GL_DEPTH_TEST);
 
