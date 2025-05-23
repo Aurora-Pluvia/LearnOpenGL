@@ -171,9 +171,20 @@ int main(){
         objectShader.setVec3("viewPos", camera.Position);
         objectShader.setVec3("lightPos", lightPos);
 
-        objectShader.setVec3("lightColor",  1.0f, 1.0f, 1.0f);
+        //随着时间改变光源的环境光和漫反射光的颜色
+        glm::vec3 lightColor;
+        lightColor.x = sin(glfwGetTime() * 2.0f);
+        lightColor.y = sin(glfwGetTime() * 0.7f);
+        lightColor.z = sin(glfwGetTime() * 1.3f);
+        //控制光照效果，因为是环境光和漫反射光，所以不要太强
+        glm::vec3 diffuseColor = lightColor * glm::vec3(0.5f); // 降低影响
+        glm::vec3 ambientColor = diffuseColor * glm::vec3(0.2f); // 很低的影响
+        //为片元着色器的光照结构体传值
+        objectShader.setVec3("light.ambient",  ambientColor);
+        objectShader.setVec3("light.diffuse",  diffuseColor);
+        objectShader.setVec3("light.specular", 1.0f, 1.0f, 1.0f); 
 
-        //为片元着色器的材质结构体传值，方式同uniform
+        //为片元着色器的材质结构体传值
         objectShader.setVec3("material.ambient",  1.0f, 0.5f, 0.31f);
         objectShader.setVec3("material.diffuse",  1.0f, 0.5f, 0.31f);
         objectShader.setVec3("material.specular", 0.5f, 0.5f, 0.5f);
