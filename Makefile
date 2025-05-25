@@ -20,9 +20,10 @@ OUTPUT	:= output
 # define source directory 运行时修改此处路径
 SRC		:= src/$(dir) #// 传递 var 变量定义执行文件目录
 CLEAN_SRC		:= src/$(dir)/*.o #// 删除所有.o文件
+VCPKGDIR := E:/CppSoft/vcpkg/vcpkg-2025.04.09/installed/x64-windows/include
 
 # define include directory
-INCLUDE	:= include
+INCLUDE	:= include $(VCPKGDIR)
 
 # define lib directory
 LIB		:= lib

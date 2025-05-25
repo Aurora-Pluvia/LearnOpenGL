@@ -4,6 +4,10 @@
         {
             "label": "build",
             "type": "shell",
+            "args": [
+				"-I",
+                "E:/CppSoft/vcpkg/vcpkg-2025.04.09/installed/x64-windows/include"
+			],
             "group": {
                 "kind": "build",
                 "isDefault": true

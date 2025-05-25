@@ -35,6 +35,13 @@ source_group("SIMD Files" FILES ${SIMD_SOURCE})
 source_group("SIMD Files" FILES ${SIMD_INLINE})
 source_group("SIMD Files" FILES ${SIMD_HEADER})
 
+find_package(assimp CONFIG REQUIRED)
+if(assimp_FOUND)
+	message("assimp found: ${assimp_Version}")
+else()
+	message("assimp not found or version not compatible")
+endif()
+
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/..)
 
 if(GLM_STATIC_LIBRARY_ENABLE OR GLM_DYNAMIC_LIBRARY_ENABLE)

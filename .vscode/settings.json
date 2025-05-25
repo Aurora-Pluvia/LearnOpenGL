@@ -45,5 +45,9 @@
         "iterator": "cpp",
         "iomanip": "cpp"
     },
-    "cmake.sourceDirectory": "D:/Code/LearnOpenGL/include/glm"
+    "cmake.sourceDirectory": "E:/Code/LearnOpenGL/LearnOpenGL/include/glm",
+    "cmake.configureArgs": [
+        "-DCMAKE_WINDOWS_EXPORT_ALL_SYMBOLS=TRUE",
+        "-DCMAKE_TOOLCHAIN_FILE=D:/Disk/2024/vcpkg/scripts/buildsystems/vcpkg.cmake"
+    ]
 }

@@ -3,7 +3,10 @@
         {
             "name": "Win32",
             "includePath": [
-                "D:/MinGW gcc/mingw64/include/**", "D:/MinGW gcc/mingw64/x86_64-w64-mingw32/include/**", "${workspaceFolder}/**"
+                "D:/MinGW gcc/mingw64/include/**", 
+                "D:/MinGW gcc/mingw64/x86_64-w64-mingw32/include/**",
+                "${workspaceFolder}/**",
+                "${vcpkgRoot}/x64-windows/include"
             ],
             "defines": [
                 "_DEBUG",
