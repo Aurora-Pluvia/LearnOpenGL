@@ -31,7 +31,7 @@ struct Vertex {
 struct Texture {
     unsigned int id;
     string type;//纹理类型，比如是漫反射贴图或者镜面光贴图
-    string path;
+    string path;//储存纹理的路径，用于与其它纹理进行比较
 };
 
 //网格类
